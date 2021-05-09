@@ -4,19 +4,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Put Content Here">
-    <meta name="keywords" content="Put keywords here">
-    <meta name="author" content="Put your name here">
+    <meta name="description" content="This website displays famous quotes">
+    <meta name="keywords" content="quotes, famous quotes, authors, quote">
+    <meta name="author" content="Zarah Ayers">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>DB Name</title>
+    <title>Famous Quotes</title>
     
     <!-- Edit the link below / replace with your chosen google font -->
     <link href="https://fonts.googleapis.com/css?family=Lato%7cUbuntu" rel="stylesheet"> 
     
     <!-- Edit the name of your style sheet - 'foo' is not a valid name!! -->
-    <link rel="stylesheet" href="theme/l3_data_style.css"> 
-        <link rel="stylesheet" href="theme/font-awesome.min.css">
+    <link rel="stylesheet" href="css/quick_quotes.css"> 
+        <link rel="stylesheet" href="css/font-awesome.min.css.css">
     
 </head>
     
@@ -29,7 +29,7 @@
         <div class="box banner">
             
     
-            <h1>DB Name</h1>
+            <h1>Quick Quotes</h1>
         </div>    <!-- / banner -->
 
         <!-- Navigation goes here.  Edit BOTH the file name and the link name -->
@@ -83,7 +83,7 @@
         
 
         <div class="box footer">
-            CC yourname 20XX
+            CC Zarah Ayers 2021
         </div>    <!-- / footer -->
     
     </div>  <!-- / wrapper  -->
