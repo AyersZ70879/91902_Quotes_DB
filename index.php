@@ -7,7 +7,7 @@ include("config.php");
 include("functions.php");
 
 // Connect database
-$dbconnect=mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME);
+$dbconnect=mysqli_connect(DB_HOST,DB_USERNAME,DB_PASSWORD,DB_NAME,);
 
 if(mysqli_connect_errno()) {
     echo "Connection failed:".mysqli_connect_error();
@@ -37,6 +37,7 @@ if(mysqli_connect_errno()) {
             else {
                 // prevents users from navigating through file system
                 $page=preg_replace('/[0-9a-zA-Z]-/','',$_REQUEST['page']);
+                include("content/$page.php");
             } // end of else that includes requested content
             ?>
             
