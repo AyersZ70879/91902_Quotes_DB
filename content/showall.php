@@ -24,7 +24,7 @@ do {
 <div class="results">
     <p>
         <?php echo $quote; ?> <br />
-        <a href="index.php?page=author&authorID=<?php echo $find_rs['Auhtor_ID']; ?>">
+        <a href="index.php?page=author&authorID=<?php echo $find_rs['Author_ID']; ?>">
             <?php echo $full_name; ?> 
         </a>
     </p>
@@ -53,7 +53,9 @@ do {
              ?>
              <!-- show subjects -->
              <span class="tag">
-                <?php echo $sub_rs['Subject']; ?>
+                <a href="index.php?page=subject&subjectID=<?php echo $find_rs['Subject_ID']; ?>">
+                    <?php echo $sub_rs['Subject']; ?>
+                </a>
              </span> &nbsp; 
             
         <?php
