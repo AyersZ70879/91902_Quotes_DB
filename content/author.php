@@ -26,7 +26,7 @@ include("get_author.php");
 <br />
 <div class="about">
     <h2>
-    <?php echo $full_name ?> - About
+        <?php echo $full_name ?> - About
     </h2>
 
     <p><b>Born:</b> <?php echo $find_rs['Born']; ?> </p>
