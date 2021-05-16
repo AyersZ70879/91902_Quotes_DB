@@ -13,9 +13,21 @@ JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`) WHERE `quotes`.`Aut
 $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
 
-?>
+// get author name to display
+include("get_author.php");
 
-<h2>All Results </h2>
+?>
+<br />
+<div class="about">
+    <h2>
+    <?php echo $full_name ?> - About
+    </h2>
+
+    <p><b>Born:</b> <?php echo $find_rs['Born']; ?> </p>
+
+</div> <!-- / about author div -->
+
+<br />
 
 <?php
 
@@ -24,17 +36,13 @@ do {
 
     $quote = preg_replace('/[^A-Za-z0-9.,?\s\'\-]/', ' ', $find_rs['Quote']);
 
-    // get author name to display
-    include("get_author.php");
+    
 
     ?>
 <div class="results">
     <p>
         <?php echo $quote; ?> <br />
-        <!-- display author name -->
-        <a href="index.php?page=author&authorID=<?php echo $find_rs['Author_ID']; ?>">
-            <?php echo $full_name; ?> 
-        </a>
+        
     </p>
 
     <!-- get subject tags to display -->
