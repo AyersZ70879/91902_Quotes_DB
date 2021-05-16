@@ -13,6 +13,12 @@ JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`) WHERE `quotes`.`Aut
 $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
 
+$country1 = $find_rs['Country1_ID'];
+$country2 = $find_rs['Country2_ID'];
+
+$occupation1 = $find_rs['Career1_ID'];
+$occupation2 = $find_rs['Career2_ID'];
+
 // get author name to display
 include("get_author.php");
 
@@ -24,6 +30,14 @@ include("get_author.php");
     </h2>
 
     <p><b>Born:</b> <?php echo $find_rs['Born']; ?> </p>
+
+    <p>
+        <?php
+        // show countries...
+        country_job($dbconnect, $country1, $country2, "Country", "Countries", "country", "CountryID", 
+        "Country")
+        ?>
+    </p>
 
 </div> <!-- / about author div -->
 
