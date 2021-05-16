@@ -33,7 +33,7 @@ include("get_author.php");
 
     <p>
         <?php
-        // show countries...
+        // show countries....
         country_job($dbconnect, $country1, $country2, "Country", "Countries", "country", "CountryID", 
         "Country")
         ?>
