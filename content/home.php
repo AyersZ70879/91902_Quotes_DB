@@ -1,13 +1,14 @@
-<h2>First Page heading</h2>
+<h2>Quick Quotes Database</h2>
             
             <p>
-                Sugar plum powder dessert bonbon powder lollipop lollipop muffin I love. Tiramisu dessert I love sugar plum apple pie marzipan chocolate bar brownie. Pudding tiramisu caramels biscuit tiramisu. I love gummies gummies pie sweet pudding I love I love. Donut halvah candy oat cake donut. Caramels wafer danish jelly-o.
+                This website contains small quotes from famous people. <br /> <br />
+                This includes different types of quotes ranging from inspirational to thought provoking
+            </p>
+
+            <p>
+                You can view all the quotes in the all entries tag, or you can find a random or recent quote you have viewed
             </p>
             
             <p>
-                Jelly beans gingerbread jelly tootsie roll. Lemon drops bear claw I love tiramisu candy canes cake. Jelly-o apple pie powder tart I    love candy tiramisu. Topping liquorice cake sesame snaps brownie. Lemon drops jelly beans brownie danish I love fruitcake cotton candy danish. Dragée pastry halvah macaroon I love chocolate bar caramels liquorice. Halvah cupcake muffin fruitcake pastry I love bear claw I love jelly. Tart chocolate bar croissant danish jelly. Sugar plum powder cupcake muffin gingerbread I love sweet.
-            </p>
-            
-            <p>
-                Biscuit jelly I love jelly-o candy canes chupa chups topping lemon drops I love. Sesame snaps macaroon lemon drops carrot cake I love. Chocolate bar gingerbread chupa chups. Dessert chocolate pastry liquorice tootsie roll lemon drops sweet macaroon liquorice. I love muffin bonbon. Cupcake apple pie chocolate cake bonbon topping. Macaroon gummi bears dragée caramels donut chocolate.
+                If you are an admin you can also sign in and edit (by adding or removing) different quotes
             </p>
