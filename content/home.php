@@ -6,7 +6,7 @@
             </p>
 
             <p>
-                You can view all the quotes in the all entries tag, or you can find a random or recent quote you have viewed
+                You can view all the quotes in the all entries tag, or you can find a random or recent quote that has been added into the database
             </p>
             
             <p>

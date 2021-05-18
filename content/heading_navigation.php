@@ -10,7 +10,7 @@
             
             <div class="linkwrapper">
                 <div class="commonsearches">
-                    <a href="index.php?page=showall">All Entry</a> | 
+                    <a href="index.php?page=showall">All Quotes</a> | 
                     <a href="index.php?page=recent">Recent</a> | 
                     <a href="index.php?page=random">Random</a> 
                 </div>  <!-- / common searches -->
