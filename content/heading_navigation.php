@@ -44,14 +44,13 @@
 
                         else{
                             ?>
-                        <a href="index.php?page=">Login</a>
+                        <a href="index.php?page=../admin/login">Login</a>
                             <?php
 
                         } // end of log in else
 
                     ?>
 
-                    <a href="#">Log In</a>
                     
                 </div>  <!-- / top admin -->
                 
