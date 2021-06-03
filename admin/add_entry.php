@@ -43,5 +43,19 @@ else {
 <form autocomplete="off" method="post" action="action=<?php 
 echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
+    <!-- Quote text area -->
+    <div class="<?php echo $quote_error; ?>">
+    This field can't be blank
+    </div>
+
+    <textarea class="add-field <?php echo $quote_field?>" name="quote" rows="6">
+    <?php echo $quote; ?></textarea>
+    <br /> <br />
+
+    <!-- Submit Button -->
+    <p>
+        <input type="submit" vlaue="Submit" />
+    </p>
+
 
 </form>
