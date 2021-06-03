@@ -19,7 +19,7 @@ if (isset($_SESSION['admin'])) {
         // get values from form...
         $author_ID = mysqli_real_escape_string($dbconnect, $_POST['author']);
         $_SESSION['Add_Quote']=$author_ID;
-        header('Location: index.php?page=../admin/add_entry');
+        header("Location: index.php?page=../admin/add_entry");
     
     } // end submit button pushed if
 
@@ -36,12 +36,12 @@ else {
 ?>
 <h1>Add a Quote</h1>
 <p><i>
-    Too add a quote, first select the author, then press the 'next' button. If the author is
+    To add a quote, first select the author, then press the 'next' button. If the author is
     not in the list, please choose the 'New Author' option. To quickly find an author, click
     in the box below and start typing their <b>first</b> name. 
 </i></p>
 
-<form method="post" enctype="multipart/form-data" action="action=<?php 
+<form method="post" enctype="multipart/form-data" action="<?php 
 echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/new_quote");?>">
 
     <div>
