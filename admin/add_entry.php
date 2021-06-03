@@ -28,6 +28,23 @@ $quote_field = "form-ok";
 $tag_1_field = "tag-ok";
 
 // Code below excutes when the form is submitted...
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // get data from form
+    $quote = mysqli_real_escape_string($dbconnect, $_POST['quote']);
+
+    // check data is valid
+
+    // check quote is not blank
+    if ($quote == "Please type your quote here") {
+        $has_errors = "yes";
+        $quote_error = "error-text";
+        $quote_field = "form-error";
+    }
+
+    
+
+} // end submit button if
 
 } // end user logged in if
 
