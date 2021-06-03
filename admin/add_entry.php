@@ -27,6 +27,8 @@ $quote_error = $tag_1_error = "no-error";
 $quote_field = "form-ok";
 $tag_1_field = "tag-ok";
 
+// Code below excutes when the form is submitted...
+
 } // end user logged in if
 
 else {
