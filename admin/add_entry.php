@@ -88,7 +88,7 @@ else {
 
 <h1>Add Quote...</h1>
 
-<form autocomplete="off" method="post" action="action=<?php 
+<form autocomplete="off" method="post" action="<?php 
 echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
     <!-- Quote text area -->
