@@ -32,6 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // get data from form
     $quote = mysqli_real_escape_string($dbconnect, $_POST['quote']);
+    $notes = mysqli_real_escape_string($dbconnect, $_POST['notes']);
+    $tag_1 = mysqli_real_escape_string($dbconnect, $_POST['Subject_1']);
+    $tag_2 = mysqli_real_escape_string($dbconnect, $_POST['Subject_2']);
+    $tag_3 = mysqli_real_escape_string($dbconnect, $_POST['Subject_3']);
 
     // check data is valid
 
@@ -40,6 +44,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $has_errors = "yes";
         $quote_error = "error-text";
         $quote_field = "form-error";
+    }
+
+    if ($tag_1 == "") {
+        $has_errors = "yes";
+        $tag_1_error = "error-text";
+        $tag_1_field = "tag-error";
     }
 
     
@@ -63,12 +73,47 @@ else {
 echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
     <!-- Quote text area -->
+
+    <!-- Quote entry in add entry - Required -->
     <div class="<?php echo $quote_error; ?>">
     This field can't be blank
     </div>
 
     <textarea class="add-field <?php echo $quote_field?>" name="quote" rows="6">
     <?php echo $quote; ?></textarea>
+
+    <!-- Notes section in add entry -->
+    <input class="add-field <?php echo $notes; ?>" type="text" name="notes" value="<?php
+    echo $notes; ?>" placeholder="Notes (optional) ..."/>
+    <br /> <br />
+
+    <!-- Subject 1 entry in add entry - Required -->
+    <div class="<?php echo $tag_1_error ?>">
+        Please enter at least one subject tag
+    </div>
+    <div class="autocomplete">
+        <input class="<?php echo $tag_1_field; ?>" id="subject1" type="text" name="Subject_1" 
+        placeholder="Subject 1 (Start Typing...)">
+    </div>
+
+    <br /> <br />
+
+    <!-- Subject 2 entry in add entry -->
+    <div class="autocomplete">
+    
+        <input id="subject2" type="text" name="Subject_2" 
+        placeholder="Subject 2 (Start Typing, optional)...">
+    </div>
+
+    <br /> <br />
+
+    <!-- Subject 3 entry in add entry -->
+    <div class="autocomplete">
+    
+        <input id="subject3" type="text" name="Subject_3" 
+        placeholder="Subject 3 (Start Typing, optional)...">
+    </div>
+
     <br /> <br />
 
     <!-- Submit Button -->
@@ -78,3 +123,14 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
 
 </form>
+
+<!-- script to make autocomplete work -->
+<script>
+<?php include("autocomplete.php"); ?>
+
+/* Arrays containing lists */
+var all_tags = <?php print("$all_subjects"); ?>;
+autocomplete(document.getElementById("subject1"), all_tags);
+autocomplete(document.getElementById("subject2"), all_tags);
+autocomplete(document.getElementById("subject3"), all_tags);
+</script>

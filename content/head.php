@@ -13,7 +13,8 @@
     
     <!-- Edit the name of your style sheet - 'foo' is not a valid name!! -->
     <link rel="stylesheet" href="css/quick_quotes.css"> 
-        <link rel="stylesheet" href="css/font-awesome.min.css.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css.css">
+    <link rel="stylesheet" href="theme/auto_complete.css">
     
 </head>
     
