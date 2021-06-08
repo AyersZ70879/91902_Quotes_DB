@@ -98,8 +98,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
     This field can't be blank
     </div>
 
-    <textarea class="add-field <?php echo $quote_field?>" name="quote" rows="6">
-    <?php echo $quote; ?></textarea>
+    <textarea class="add-field <?php echo $quote_field?>" name="quote" rows="6"><?php echo $quote; ?></textarea>
 
     <!-- Notes section in add entry -->
     <input class="add-field <?php echo $notes; ?>" type="text" name="notes" value="<?php
