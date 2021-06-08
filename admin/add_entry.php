@@ -95,7 +95,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
     <!-- Quote entry in add entry - Required -->
     <div class="<?php echo $quote_error; ?>">
-    This field can't be blank
+        This field can't be blank
     </div>
 
     <textarea class="add-field <?php echo $quote_field?>" name="quote" rows="6"><?php echo $quote; ?></textarea>

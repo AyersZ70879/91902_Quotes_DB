@@ -264,7 +264,7 @@ input.tag-ok[type=text]{
 }
 
 /* error messages */
-no-error {
+.no-error {
     display: none;
 }
 
