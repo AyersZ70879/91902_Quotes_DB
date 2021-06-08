@@ -5,6 +5,38 @@ if (isset($_SESSION['admin'])) {
 
     $author_ID = $_SESSION['Add_Quote'];
 
+    if($author_ID=="unknown") {
+        // get country & occupation lists from database
+        $all_countirs_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
+        $all_countres = autocomplete_list($dbconnect, $all_countirs_sql, 'Country');
+
+        $all_occupations_sql="SELECT * FROM `career`ORDER BY `Career` ASC ";
+        $all_occupations = autocomplete_list($dbconnect, $all_occupations_sql, 'Career');
+
+    }
+
+    // initialise author variables
+    $first = "";
+    $middle = "";
+    $last = "";
+    $yob = "";
+    $gender_code = "";
+    $country_1 = "";
+    $country_2 = "";
+    $occupation_1 = "";
+    $occupation_2 = "";
+
+    // Initialise country and occpuation ID's
+    $country_1_ID = $country_2_ID = $occuptaion_1_ID = $occupation_2_ID = 0;
+
+    // set up error fields / visibility
+    $last_error = $yob_error = $gender_error = 
+    $country_1_error = $occupation_1_error = "no-error";
+
+    $last_field = $yob_field = $gender_field = "form-ok";
+    $country_1_field = $occupation_1_field = "tag-ok";
+
+
     // Get subject / topic list from database
     $all_tags_sql = "SELECT * FROM `subject` ORDER BY `Subject` ASC ";
     $all_subjects = autocomplete_list($dbconnect, $all_tags_sql, 'Subject');
@@ -111,7 +143,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
     </div>
     <div class="autocomplete">
         <input class="<?php echo $tag_1_field; ?>" id="subject1" type="text" name="Subject_1" 
-        placeholder="Subject 1 (Start Typing...)">
+        value="<?php echo $tag_1 ?>" placeholder="Subject 1 (Start Typing...)">
     </div>
 
     <br /> <br />
@@ -119,7 +151,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
     <!-- Subject 2 entry in add entry -->
     <div class="autocomplete">
     
-        <input id="subject2" type="text" name="Subject_2" 
+        <input id="subject2" type="text" name="Subject_2" value="<?php echo $tag_2 ?>"
         placeholder="Subject 2 (Start Typing, optional)...">
     </div>
 
@@ -151,4 +183,13 @@ var all_tags = <?php print("$all_subjects"); ?>;
 autocomplete(document.getElementById("subject1"), all_tags);
 autocomplete(document.getElementById("subject2"), all_tags);
 autocomplete(document.getElementById("subject3"), all_tags);
+
+var all_countries = <?php print("$all_countries"); ?>;
+autocomplete(document.getElementById("country1"), all_countries);
+autocomplete(document.getElementById("country2"), all_countries);
+
+var all_occupations = <?php print("$all_occupations"); ?>;
+autocomplete(document.getElementById("occupation1"), all_occupations);
+autocomplete(document.getElementById("occupation2"), all_occupations);
+
 </script>
