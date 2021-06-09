@@ -38,7 +38,7 @@ if (isset($_SESSION['admin'])) {
 
 
     // Get subject / topic list from database
-    $all_tags_sql = "SELECT * FROM `subject` ORDER BY `Subject` ASC ";
+    $all_tags_sql = "SELECT * FROM `subject` ORDER BY `Subject` ASC";
     $all_subjects = autocomplete_list($dbconnect, $all_tags_sql, 'Subject');
 
     // initialise form variables for quote
