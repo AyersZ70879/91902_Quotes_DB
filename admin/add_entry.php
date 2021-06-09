@@ -15,7 +15,7 @@ if (isset($_SESSION['admin'])) {
 
     }
 
-    // initialise author variables
+    // // initialise author variables
     $first = "";
     $middle = "";
     $last = "";
@@ -26,10 +26,10 @@ if (isset($_SESSION['admin'])) {
     $occupation_1 = "";
     $occupation_2 = "";
 
-    // Initialise country and occpuation ID's
+    // // Initialise country and occpuation ID's
     $country_1_ID = $country_2_ID = $occuptaion_1_ID = $occupation_2_ID = 0;
 
-    // set up error fields / visibility
+    // // set up error fields / visibility
     $last_error = $yob_error = $gender_error = 
     $country_1_error = $occupation_1_error = "no-error";
 
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $subjectID_2 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_2);
         $subjectID_3 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_3);
 
-        // add entry to database
+      // add entry to database
         $addentry_sql = 
         "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3')";
         $addentry_query = mysqli_query($dbconnect, $addentry_sql);
@@ -117,7 +117,7 @@ else {
 
 } // end user not logged in else
 
-?>
+// ?>
 
 <h1>Add Quote...</h1>
 
@@ -147,7 +147,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
         value="<?php echo $tag_1; ?>" placeholder="Subject 1 (Start Typing...)">
     </div>
 
-    <br /> <br />
+     <br /> <br />
 
     <!-- Subject 2 entry in add entry -->
     <div class="autocomplete">
@@ -163,7 +163,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
     
         <input id="subject3" type="text" name="Subject_3" 
         placeholder="Subject 3 (Start Typing, optional)...">
-    </div>
+    </div> 
 
     <br /> <br />
 
