@@ -84,6 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if($has_errors != "yes") {
+
+        // Get subject ID's via get_ID function
         $subjectID_1 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_1);
         $subjectID_2 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_2);
         $subjectID_3 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_3);
@@ -93,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3')";
         $addentry_query = mysqli_query($dbconnect, $addentry_sql);
 
-        // get wuote ID for next page
+        // get quote ID for next page
         $get_quote_sql = "SELECT * FROM `quotes` WHERE `Quote` = '$quote'";
         $get_quote_query = mysqli_query($dbconnect, $get_quote_sql);
         $get_quote_rs = mysqli_fetch_assoc($get_quote_query);
@@ -137,12 +139,12 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
     <br /> <br />
 
     <!-- Subject 1 entry in add entry - Required -->
-    <div class="<?php echo $tag_1_error ?>">
+    <div class="<?php echo $tag_1_error; ?>">
         Please enter at least one subject tag
     </div>
     <div class="autocomplete">
         <input class="<?php echo $tag_1_field; ?>" id="subject1" type="text" name="Subject_1" 
-        value="<?php echo $tag_1 ?>" placeholder="Subject 1 (Start Typing...)">
+        value="<?php echo $tag_1; ?>" placeholder="Subject 1 (Start Typing...)">
     </div>
 
     <br /> <br />
@@ -150,7 +152,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
     <!-- Subject 2 entry in add entry -->
     <div class="autocomplete">
     
-        <input id="subject2" type="text" name="Subject_2" value="<?php echo $tag_2 ?>"
+        <input id="subject2" type="text" name="Subject_2" value="<?php echo $tag_2; ?>"
         placeholder="Subject 2 (Start Typing, optional)...">
     </div>
 
