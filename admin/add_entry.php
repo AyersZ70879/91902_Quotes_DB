@@ -91,8 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $subjectID_3 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_3);
 
       // add entry to database
-        $addentry_sql = 
-        "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3')";
+        $addentry_sql = "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3');)";
         $addentry_query = mysqli_query($dbconnect, $addentry_sql);
 
         // get quote ID for next page
@@ -102,6 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $quote_ID = $get_quote_rs['ID'];
         $_SESSION['Quote_Success']=$quote_ID;
+
+        // Go to success page...
+        header('Location: index.php?page=quote_success');
 
 
     } // end has errors if
@@ -161,8 +163,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
     <!-- Subject 3 entry in add entry -->
     <div class="autocomplete">
     
-        <input id="subject3" type="text" name="Subject_3" 
-        placeholder="Subject 3 (Start Typing, optional)...">
+        <input id="subject3" type="text" name="Subject_3" placeholder="Subject 3 (Start Typing, optional)...">
     </div> 
 
     <br /> <br />
