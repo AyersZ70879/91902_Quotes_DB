@@ -86,12 +86,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if($has_errors != "yes") {
 
         // Get subject ID's via get_ID function
-        $subjectID_1 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_1);
-        $subjectID_2 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_2);
-        $subjectID_3 = get_ID($dbconnect, 'subject', 'SubjectID', 'Subject', $tag_3);
+        $subjectID_1 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_1);
+        $subjectID_2 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_2);
+        $subjectID_3 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_3);
 
       // add entry to database
-        $addentry_sql = "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3');)";
+        $addentry_sql = "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3');";
         $addentry_query = mysqli_query($dbconnect, $addentry_sql);
 
         // get quote ID for next page
