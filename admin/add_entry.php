@@ -7,8 +7,8 @@ if (isset($_SESSION['admin'])) {
 
     if($author_ID=="unknown") {
         // get country & occupation lists from database
-        $all_countirs_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
-        $all_countres = autocomplete_list($dbconnect, $all_countirs_sql, 'Country');
+        $all_countiers_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
+        $all_countries = autocomplete_list($dbconnect, $all_countiers_sql, 'Country');
 
         $all_occupations_sql="SELECT * FROM `career`ORDER BY `Career` ASC ";
         $all_occupations = autocomplete_list($dbconnect, $all_occupations_sql, 'Career');
@@ -186,6 +186,12 @@ autocomplete(document.getElementById("subject1"), all_tags);
 autocomplete(document.getElementById("subject2"), all_tags);
 autocomplete(document.getElementById("subject3"), all_tags);
 
+var all_countries = <?php print("$all_countries"); ?>;
+autocomplete(document.getElementById("country1"), all_countries);
+autocomplete(document.getElementById("country2"), all_countries);
 
+var all_occupations = <?php print("$all_occupations"); ?>;
+autocomplete(document.getElementById("occupation1"), all_occupations);
+autocomplete(document.getElementById("occupation2"), all_occupations);
 
 </script>
