@@ -246,6 +246,7 @@ select {
     padding: 5px;
 }
 
+
 /* controls input fields on autocomplete boxes (pink for and error, white for OK) */
 input.tag-error[type=text] {
     background-color: #ff9e9e;
