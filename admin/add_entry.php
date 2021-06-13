@@ -62,6 +62,45 @@ $tag_1_field = "tag-ok";
 // Code below excutes when the form is submitted...
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+    //  if author is unknown, get values from author part of form
+    if($author_ID=="unknown") {
+        $first = mysqli_real_escape_string($dbconnect, $_POST['first']);
+        $middle = mysqli_real_escape_string($dbconnect, $_POST['middle']);
+        $last = mysqli_real_escape_string($dbconnect, $_POST['last']);
+        $yob = mysqli_real_escape_string($dbconnect, $_POST['yob']);
+
+        $gender_code = mysqli_real_escape_string($dbconnect, $_POST['gender']);
+        if ($gender_code=="F") {
+            $gender = "Female";
+        }
+        else if ($gender_code=="M") {
+            $gender = "Male";
+        }
+
+        else {
+            $gender = "";
+        }
+
+        $country_1 = mysqli_real_escape_string($dbconnect, $_POST['country1']);
+        $country_2 = mysqli_real_escape_string($dbconnect, $_POST['country2']);
+        $occupation_1 = mysqli_real_escape_string($dbconnect, $_POST['occupation1']);
+        $occupation_2 = mysqli_real_escape_string($dbconnect, $_POST['occupation2']);
+
+        // Error checking goes here
+        
+        // check last name is not blank
+        if ($last == "") {
+            $has_errors = "yes";
+            $last_error = "error-text";
+            $last_field = "form-error";
+        }
+
+        // check year of birth is valid
+        $valid_yob = isValidYear($yob);
+        
+
+    } // end getting author values if 
+
     // get data from form
     $quote = mysqli_real_escape_string($dbconnect, $_POST['quote']);
     $notes = mysqli_real_escape_string($dbconnect, $_POST['notes']);
@@ -72,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // check data is valid
 
     // check quote is not blank
-    if ($quote == "Please type your quote here") {
+    if ($quote == "Please type your quote here" || $quote == "") {
         $has_errors = "yes";
         $quote_error = "error-text";
         $quote_field = "form-error";
@@ -153,11 +192,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
         <br /> <br />
 
-        <div class="<?php echo $gender_error; ?>">
-            Gender field can't be blank
-        </div>
-
-        <select class="adv <?php echo $gender_field; ?>" name="gender">
+        <select class="adv gender <?php echo $gender_field; ?>" name="gender">
 
             <?php 
             if($gender_code=="") {
@@ -198,7 +233,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
         <div class="autocomplete">
             <input class="<?php $country_1_field; ?>" id="country1" type="text"
-            name="country1" value="<?php echo $country_1; ?>" placeholder="Country 1 (Start Typing)...">
+            name="country1" value="<?php echo $country_1; ?>" placeholder="Country 1 (Required, Start Typing)...">
         </div>
 
         <br /> <br />
@@ -215,15 +250,13 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
         </div>
 
         <div class="autocomplete">
-            <input class="<?php $occupation_1_field; ?>" id="occpuation1" type="text"
-            name="occpuation1" value="<?php echo $occupation_1; ?>"
-            placeholder="Occupation 1 (Required, Start Typing...)">
+            <input class="<?php $occupation_1_field; ?>" id="occupation1" type="text"
+            name="occupation1" value="<?php echo $occupation_1; ?>" placeholder="Occupation 1 (Required, Start Typing)...">
         </div>
-
         <br /> <br />
 
         <div class="autocomplete">
-            <input type="text" id="occupation2" value="<?php echo $occupation_2; ?>"
+            <input type="text" id="occupation2" name="occupation2" value="<?php echo $occupation_2; ?>"
             placeholder="Occupation 2 (Start Typing...)">
         </div>
 
