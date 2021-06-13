@@ -97,7 +97,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // check year of birth is valid
         $valid_yob = isValidYear($yob);
+
         
+
 
     } // end getting author values if 
 
