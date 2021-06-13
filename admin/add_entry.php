@@ -198,13 +198,14 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
         <div class="autocomplete">
             <input class="<?php $country_1_field; ?>" id="country1" type="text"
-            name="country1" placeholder="Country 1 (Start Typing)...">
+            name="country1" value="<?php echo $country_1; ?>" placeholder="Country 1 (Start Typing)...">
         </div>
 
         <br /> <br />
 
         <div class="autocomplete">
-            <input id="country2" type="text" name="country2" placeholder="Country 2 (Start Typing)...">
+            <input id="country2" type="text" name="country2" value="<?php echo $country_2; ?>"
+            placeholder="Country 2 (Start Typing)...">
         </div> 
 
         <br /> <br />
@@ -215,9 +216,18 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
         <div class="autocomplete">
             <input class="<?php $occupation_1_field; ?>" id="occpuation1" type="text"
-            name="occpuation1" value="<?php echo $occpuation_1; ?>"
+            name="occpuation1" value="<?php echo $occupation_1; ?>"
             placeholder="Occupation 1 (Required, Start Typing...)">
         </div>
+
+        <br /> <br />
+
+        <div class="autocomplete">
+            <input type="text" id="occupation2" value="<?php echo $occupation_2; ?>"
+            placeholder="Occupation 2 (Start Typing...)">
+        </div>
+
+        <br /> <br />
 
         <?php
 
