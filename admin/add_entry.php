@@ -98,7 +98,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // check year of birth is valid
         $valid_yob = isValidYear($yob);
 
-        
+        if($yob < 0 || $valid_yob != 1 || !preg_match('/^\d{1,4}$/', $yob))
+        {
+            $has_errors = "yes";
+            $yob_error = "error-text";
+            $yob_field = "form-error";
+        }
+
+        // check first country is not blank
+        if ($country_1 == "") {
+            $has_errors = "yes";
+            $country_1_error = "error-text";
+            $country_1_field = "tag-error";
+        }
+
+        // check occupation is not blank
+        if ($occupation_1 == "") {
+            $has_errors = "yes";
+            $occupation_1_error = "error-text";
+            $occupation_1__field = "tag-error";
+        }
+
+
 
 
     } // end getting author values if 
@@ -131,6 +152,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $subjectID_1 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_1);
         $subjectID_2 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_2);
         $subjectID_3 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_3);
+
+        // add author to database if we have a new author... 
+        if ($author_ID=="unknown")
+        {
+            // add author to database
+            $add_author_sql = "";
+            $add_author_query = mysqli_query($dbconnect, $add_author_sql);   
+        }
 
       // add entry to database
         $addentry_sql = "INSERT INTO `quotes` (`ID`, `Author_ID`, `Quote`, `Notes`, `Subject1_ID`, `Subject2_ID`, `Subject3_ID`) VALUES (NULL, '$author_ID', '$quote', '$notes', '$subjectID_1', '$subjectID_2', '$subjectID_3');";
@@ -221,7 +250,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
         <br /> <br />
         
         <div class="<?php echo $yob_error; ?>">
-            Author's Year of Birth can't be blank
+            Please enter a valid year of birth (modern author's only).
         </div>
 
         <input class="add-field <?php echo $yob_field; ?>" type="text" name="yob"
@@ -252,7 +281,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
         </div>
 
         <div class="autocomplete">
-            <input class="<?php $occupation_1_field; ?>" id="occupation1" type="text"
+            <input class="<?php echo $occupation_1_field; ?>" id="occupation1" type="text"
             name="occupation1" value="<?php echo $occupation_1; ?>" placeholder="Occupation 1 (Required, Start Typing)...">
         </div>
         <br /> <br />
