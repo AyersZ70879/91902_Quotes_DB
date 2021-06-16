@@ -46,16 +46,6 @@ include("get_author.php");
         ?>
     </p>
 
-    <p>
-    
-        <?php
-        // show occupations... 
-        country_job($dbconnect, $occupation1, $occupation2, "Occupation",
-        "Occupations", "careers", "Career_ID", "Career")
-
-        ?>
-    </p>
-
     <?php
 
     // if logged in, show edit / delete options... 
