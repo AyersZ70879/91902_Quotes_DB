@@ -161,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             (`Author_ID`, `First`, `Middle`, `Last`, `Gender`, `Born`, 
             `Country1_ID`, `Country2_ID`, `Career1_ID`, `Career2_ID`) 
             VALUES (NULL, '$first', '$middle', '$last', '$gender_code', 
-            '$yob', '$countryID_1', '$countryID_2', '$occupationID_1', '$occupationID_2');";
+            '$yob', '$country_1_ID', '$country_2_ID', '$occuptaion_1_ID', '$occupation_2_ID');";
             $add_author_query = mysqli_query($dbconnect, $add_author_sql);
             
             // Get Author ID
