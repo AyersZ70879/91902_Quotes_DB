@@ -157,8 +157,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($author_ID=="unknown")
         {
             // add author to database
-            $add_author_sql = "";
-            $add_author_query = mysqli_query($dbconnect, $add_author_sql);   
+            $add_author_sql = "INSERT INTO `author` 
+            (`Author_ID`, `First`, `Middle`, `Last`, `Gender`, `Born`, 
+            `Country1_ID`, `Country2_ID`, `Career1_ID`, `Career2_ID`) 
+            VALUES (NULL, '$first', '$middle', '$last', '$gender_code', 
+            '$yob', '$countryID_1', '$countryID_2', '$occupationID_1', '$occupationID_2');";
+            $add_author_query = mysqli_query($dbconnect, $add_author_sql);
+            
+            // Get Author ID
+            $find_author_sql = "SELECT * FROM `author` WHERE `Last` = '$last'";
+            $find_author_query = mysqli_query($dbconnect, $find_author_sql);
+            $find_author_rs = mysqli_fetch_assoc($find_author_query);
+
+            $new_authorID = $find_author_rs['Author_ID'];
+            echo "New Author ID:".$new_authorID;
+
+            $author_ID = $new_authorID;
         }
 
       // add entry to database
