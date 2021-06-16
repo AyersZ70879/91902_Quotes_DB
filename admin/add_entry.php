@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($last == "") {
             $has_errors = "yes";
             $last_error = "error-text";
-            $last_field = "form-error";
+            $last_field = "tag-error";
         }
 
         // check year of birth is valid
@@ -119,7 +119,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $occupation_1__field = "tag-error";
         }
 
+        // get country and occupation IDs
+        $countryID_1 = get_ID($dbconnect, 'country', 'Country_ID', 'Country', $country_1);
+        $countryID_2 = get_ID($dbconnect, 'country', 'Country_ID', 'Country', $country_2);
 
+        $occupationID_1 = get_ID($dbconnect, 'career', 'Career_ID', 'Career', $occupation_1);
+        $occupationID_2 = get_ID($dbconnect, 'career', 'Career_ID', 'Career', $occupation_2);
 
 
     } // end getting author values if 
@@ -161,7 +166,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             (`Author_ID`, `First`, `Middle`, `Last`, `Gender`, `Born`, 
             `Country1_ID`, `Country2_ID`, `Career1_ID`, `Career2_ID`) 
             VALUES (NULL, '$first', '$middle', '$last', '$gender_code', 
-            '$yob', '$country_1_ID', '$country_2_ID', '$occuptaion_1_ID', '$occupation_2_ID');";
+            '$yob', '$countryID_1', '$countryID_2', '$occupationID_1', '$occupationID_2');";
             $add_author_query = mysqli_query($dbconnect, $add_author_sql);
             
             // Get Author ID
