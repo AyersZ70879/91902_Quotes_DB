@@ -5,6 +5,16 @@ if (isset($_SESSION['admin'])) {
 
 $ID = $_REQUEST['ID'];
 
+    // Get author ID
+    $find_sql = "SELECT * FROM `quotes`
+    JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`) WHERE `quotes`.`ID` = $ID
+    ";
+
+    $find_query = mysqli_query($dbconnect, $find_sql);
+    $find_rs = mysqli_fetch_assoc($find_query);
+
+    $author_ID = $find_rs['Author_ID'];
+
 
     // Get subject / topic list from database
     $all_tags_sql = "SELECT * FROM `subject` ORDER BY `Subject` ASC";
