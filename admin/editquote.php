@@ -18,7 +18,7 @@ $ID = $_REQUEST['ID'];
     $middle = $find_rs['Middle'];
     $last = $find_rs['Last'];
 
-    $current_author = $last.", ".$first." ".$middle;
+    $current_author = $last." ".$first." ".$middle;
 
     // Get subject / topic list from database
     $all_tags_sql = "SELECT * FROM `subject` ORDER BY `Subject` ASC";
@@ -188,7 +188,8 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editquote&ID=$ID");?>
     <!-- Subject 3 entry in add entry -->
     <div class="autocomplete">
     
-        <input id="subject3" type="text" name="Subject_3" placeholder="Subject 3 (Start Typing, optional)...">
+        <input id="subject3" type="text" name="Subject_3" value="<?php echo $tag_3; ?>"
+        placeholder="Subject 3 (Start Typing, optional)...">
     </div> 
 
     <br /> <br />
