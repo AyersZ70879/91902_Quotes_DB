@@ -28,23 +28,23 @@ $ID = $_REQUEST['ID'];
     $quote = $find_rs['Quote'];
     $notes = $find_rs['Notes'];
 
-    // Get subjects to populate tags.. 
-    $subject1_ID = $find_rs['Subject1_ID'];
-    $subject2_ID = $find_rs['Subject2_ID'];
-    $subject3_ID = $find_rs['Subject3_ID'];
+// Get subjects to populate tags.. 
+$subject1_ID = $find_rs['Subject1_ID'];
+$subject2_ID = $find_rs['Subject2_ID'];
+$subject3_ID = $find_rs['Subject3_ID'];
 
-    // Retrieve subject names from subject table... 
-    $tag_1_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
-    $subject1_ID");
-    $tag_1 = $tag_1_rs['Subject'];
+// Retrieve subject names from subject table... 
+$tag_1_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
+$subject1_ID");
+$tag_1 = $tag_1_rs['Subject'];
 
-    $tag_2_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
-    $subject2_ID");
-    $tag_2 = $tag_2_rs['Subject'];
+$tag_2_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
+$subject2_ID");
+$tag_2 = $tag_2_rs['Subject'];
 
-    $tag_3_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
-    $subject3_ID");
-    $tag_3 = $tag_3_rs['Subject'];
+$tag_3_rs = get_rs($dbconnect, "SELECT * FROM `subject` WHERE Subject_ID = 
+$subject3_ID");
+$tag_3 = $tag_3_rs['Subject'];
 
 // initialise tag ID's
 $tag_1_ID = $tag_2_ID = $tag_3_ID = 0;
