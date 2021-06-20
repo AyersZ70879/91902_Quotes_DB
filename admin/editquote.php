@@ -90,7 +90,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $subjectID_3 = get_ID($dbconnect, 'subject', 'Subject_ID', 'Subject', $tag_3);
 
         // edit database entry
-        $editentry_sql = "";
+        $editentry_sql = "UPDATE `quotes` SET `Author_ID` = '$author_ID', `Quote` = '$quote', `Notes` 
+        = '$notes', `Subject1_ID` = '$subjectID_1', `Subject2_ID = '$subjectID_2', 
+        `Subject3_ID` = '$subjectID_3' WHERE `quotes`.`ID` = $ID;";
         $editentry_query = mysqli_query($dbconnect, $editentry_sql);
 
         // get quote ID for next page
@@ -102,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['Quote_Success']=$quote_ID;
 
         // Go to success page...
-        header('Location: index.php?page=quote_success');
+        header('Location: index.php?page=editquote_success&quote_ID='.$quote_ID);
 
 
     } // end has errors if
@@ -136,7 +138,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editquote&ID=$ID");?>
         <?php
 
         // get authors from database
-        $all_authors_sql = "";
+        $all_authors_sql = "UPDATE `quotes` SET";
         $all_authors_query = mysqli_query($dbconnect, $all_authors_sql);
         $all_authors_rs = mysqli_fetch_assoc($all_authors_query);
 
