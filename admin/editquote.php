@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // edit database entry
         $editentry_sql = "UPDATE `quotes` SET `Author_ID` = '$author_ID', `Quote` = '$quote', `Notes` 
-        = '$notes', `Subject1_ID` = '$subjectID_1', `Subject2_ID = '$subjectID_2', 
+        = '$notes', `Subject1_ID` = '$subjectID_1', `Subject2_ID` = '$subjectID_2', 
         `Subject3_ID` = '$subjectID_3' WHERE `quotes`.`ID` = $ID;";
         $editentry_query = mysqli_query($dbconnect, $editentry_sql);
 
