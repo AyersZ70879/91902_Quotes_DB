@@ -42,6 +42,11 @@
                             <i class="fa fa-sign-out fa-2x"></i>
                         </a>
 
+                        &nbsp; &nbsp;
+
+                        <a href="index.php?page=../admin/admin_panel" title="Admin Panel">
+                        <i class="fa fa-ellipsis-v fa-2x"></i></a>
+
                         <?php
 
                         } // end user is logged in if
