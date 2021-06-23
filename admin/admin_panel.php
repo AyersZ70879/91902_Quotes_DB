@@ -84,6 +84,14 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/admin_panel");?>">
     </div>
 
 </form>
+
+&nbsp; &nbsp;
+<p>
+<a href="index.php?page=../admin/logout" title="Log out">
+    Log Out
+</a>
+</p>
+
 <?php
 } // end user logged in if
 
