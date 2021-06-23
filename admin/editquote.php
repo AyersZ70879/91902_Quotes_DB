@@ -127,7 +127,13 @@ else {
 <form autocomplete="off" method="post" action="<?php 
 echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editquote&ID=$ID");?>">
 
-    <b>Quote Author:</b> &nbsp;
+    <p>
+        <i>If you need to change this quotes's author and the author you need is 
+        NOT in the list below. Please <a href="index.php?page=../admin/add_author" target="_blank">add the author</a>. 
+        Then come back and reload this page to refresh the list.</i>
+    </p>
+    
+    &nbsp;
 
     <select class="adv gender" name="author">
         <!-- Default option is new author -->
