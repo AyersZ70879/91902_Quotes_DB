@@ -3,15 +3,15 @@
 // check if user is logged in 
 if (isset($_SESSION['admin'])) {
 
-    if($author_ID=="unknown") {
-        // get country & occupation lists from database
-        $all_countiers_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
-        $all_countries = autocomplete_list($dbconnect, $all_countiers_sql, 'Country');
 
-        $all_occupations_sql="SELECT * FROM `career`ORDER BY `Career` ASC ";
-        $all_occupations = autocomplete_list($dbconnect, $all_occupations_sql, 'Career');
+    // get country & occupation lists from database
+    $all_countiers_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
+    $all_countries = autocomplete_list($dbconnect, $all_countiers_sql, 'Country');
 
-    }
+    $all_occupations_sql="SELECT * FROM `career`ORDER BY `Career` ASC ";
+    $all_occupations = autocomplete_list($dbconnect, $all_occupations_sql, 'Career');
+
+
 
     // // initialise author variables
     $first = "";
@@ -243,6 +243,11 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_author");?>">
         </div>
 
         <br /> <br />
+
+    <!-- Submit Button -->
+    <p>
+        <input type="submit" value="Submit" />
+    </p>
 
 
 <!-- script to make autocomplete work -->

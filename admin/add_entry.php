@@ -363,7 +363,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_entry");?>">
 
     <!-- Submit Button -->
     <p>
-        <input type="submit" vlaue="Submit" />
+        <input type="submit" value="Submit" />
     </p>
 
 
@@ -379,12 +379,25 @@ autocomplete(document.getElementById("subject1"), all_tags);
 autocomplete(document.getElementById("subject2"), all_tags);
 autocomplete(document.getElementById("subject3"), all_tags);
 
-var all_countries = <?php print("$all_countries"); ?>;
-autocomplete(document.getElementById("country1"), all_countries);
-autocomplete(document.getElementById("country2"), all_countries);
+<?php
 
-var all_occupations = <?php print("$all_occupations"); ?>;
-autocomplete(document.getElementById("occupation1"), all_occupations);
-autocomplete(document.getElementById("occupation2"), all_occupations);
+    if ($author_ID == "unknown"){
+
+    ?>
+
+    var all_countries = <?php print("$all_countries"); ?>;
+    autocomplete(document.getElementById("country1"), all_countries);
+    autocomplete(document.getElementById("country2"), all_countries);
+
+    var all_occupations = <?php print("$all_occupations"); ?>;
+    autocomplete(document.getElementById("occupation1"), all_occupations);
+    autocomplete(document.getElementById("occupation2"), all_occupations);
+
+
+        <?php
+    } // end author unknown if
+
+    ?>
+
 
 </script>
