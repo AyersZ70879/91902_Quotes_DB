@@ -89,9 +89,8 @@ $count = mysqli_num_rows($find_quotes_query);
 
     if($count > 0) {
         // find quotes if they exist... 
-        $find_sql = "SELECT * FROM `quotes` JOIN author ON (`author`.`Author_ID` = 
-        `quotes`.`Author_ID`) WHERE `quotes`.`Author_ID` = $author_to_find
-        ";
+        $find_sql = "SELECT * FROM `quotes`
+        JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`) WHERE `quotes`.`Author_ID` = $author_to_find";
         $find_query = mysqli_query($dbconnect, $find_sql);
         $find_rs = mysqli_fetch_assoc($find_query);
     

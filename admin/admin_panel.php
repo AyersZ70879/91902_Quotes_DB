@@ -18,19 +18,9 @@ if (isset($_SESSION['admin'])) {
     
         // get values from form...
         $author_ID = mysqli_real_escape_string($dbconnect, $_POST['author']);
-        header("Location: index.php?page=..author&authorID=".$author_ID);
+        header("Location: index.php?page=author&authorID=".$author_ID);
     
     } // end submit button pushed if
-
-
-} // end user logged in if
-
-else {
-
-    $login_error = 'Please login to access this page';
-    header("Location: index.php?page=../admin/login&error=$login_error");
-
-} // end user not logged in else
 
 ?>
 <h1>Admin Panel</h1>
@@ -94,5 +84,14 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/admin_panel");?>">
     </div>
 
 </form>
+<?php
+} // end user logged in if
 
+else {
+
+    $login_error = 'Please login to access this page';
+    header("Location: index.php?page=../admin/login&error=$login_error");
+
+} // end user not logged in else
+?>
 &nbsp;
