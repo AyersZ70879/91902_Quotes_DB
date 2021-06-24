@@ -73,6 +73,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $last_field = "tag-error";
     }
 
+    // if gender is not chosen... 
+    if ($gender == "") {
+        $has_errors = "yes";
+        $gender_error = "error-text";
+        $gender_field = "form-error";
+
+    }
+
     // check year of birth is valid
     $valid_yob = isValidYear($yob);
 
@@ -174,6 +182,9 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/add_author");?>">
 
         <br /> <br />
 
+        <div class="<?php echo $gender_error; ?>">
+            Plese choose a gender... 
+        </div>
         <select class="adv gender <?php echo $gender_field; ?>" name="gender">
 
             <?php 
