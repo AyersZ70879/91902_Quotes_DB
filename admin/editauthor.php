@@ -134,13 +134,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         // add author to database
-        $editauthor_sql = "UPDATE `author` SET `First` = '$first', `Middle` = '$middle, 
-        `Last` = '$last, `Gender` = '$gender_code', `Born` = '$yob', 
-        `Country1_ID` = '$countryID_1', `Country2_ID` = '$countryID_2, 
+        $editauthor_sql = "UPDATE `author` SET `First` = '$first', `Middle` = '$middle', 
+        `Last` = '$last', `Gender` = '$gender_code', `Born` = '$yob', 
+        `Country1_ID` = '$countryID_1', `Country2_ID` = '$countryID_2', 
         `Career1_ID` = '$occupationID_1', `Career2_ID` = '$occupationID_2' WHERE 
         `author`.`Author_ID` = $author_ID;
         ";
-        $edit_author_query = mysqli_query($dbconnect, $edit_author_sql);
+        $edit_author_query = mysqli_query($dbconnect, $editauthor_sql);
         
         
     
