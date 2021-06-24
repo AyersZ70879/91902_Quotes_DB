@@ -144,7 +144,7 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editquote&ID=$ID");?>
         <?php
 
         // get authors from database
-        $all_authors_sql = "UPDATE `quotes` SET";
+        $all_authors_sql = "SELECT * FROM `author` ORDER BY `Last` ASC ";
         $all_authors_query = mysqli_query($dbconnect, $all_authors_sql);
         $all_authors_rs = mysqli_fetch_assoc($all_authors_query);
 
@@ -173,6 +173,8 @@ echo htmlspecialchars($_SERVER["PHP_SELF"]."?page=../admin/editquote&ID=$ID");?>
         ?>
 
     </select>
+    
+    <br /> <br />
 
 
     <!-- Quote entry in add entry - Required -->
