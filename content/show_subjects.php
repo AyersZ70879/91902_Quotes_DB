@@ -22,7 +22,7 @@
              ?>
              <!-- show subjects -->
              <span class="tag">
-                <a href="index.php?page=subject&subjectID=<?php echo $find_rs['Subject_ID']; ?>">
+                <a href="index.php?page=subject&subjectID=<?php echo $sub_rs['Subject_ID']; ?>">
                     <?php echo $sub_rs['Subject']; ?>
                 </a>
              </span> &nbsp; 
