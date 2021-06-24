@@ -1,7 +1,7 @@
 <?php
 
 // check the user is logged in... 
-if (isset($_SEISSION['admin'])) {
+if (isset($_SESSION['admin'])) {
 
 } // end user logged in if
 
