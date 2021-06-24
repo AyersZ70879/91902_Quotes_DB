@@ -35,7 +35,7 @@ if (isset($_SESSION['admin'])) {
 ?>
 <p>
 <a href="index.php?page=../admin/deleteauthor&ID=<?php echo $_REQUEST['ID']; ?>">
-Yes, Delete it@!</a>
+Yes, Delete it!</a>
 <a href="index.php?page=author&authorID=<?php echo $_REQUEST['ID']; ?>">
 No, take me back</a>
 </p>
