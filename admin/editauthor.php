@@ -4,6 +4,7 @@
 if (isset($_SESSION['admin'])) {
 
     $author_ID = $_REQUEST['authorID'];
+    echo $author_ID;
 
     // get country & occupation lists from database
     $all_countiers_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
@@ -12,11 +13,11 @@ if (isset($_SESSION['admin'])) {
     $all_occupations_sql="SELECT * FROM `career`ORDER BY `Career` ASC ";
     $all_occupations = autocomplete_list($dbconnect, $all_occupations_sql, 'Career');
 
-    $all_authors_sql = "SELECT * FROM `author` WHERE Author_ID = $author_ID";
+    $all_authors_sql = "SELECT * FROM `author` WHERE `Author_ID` = $author_ID";
     $all_authors_query = mysqli_query($dbconnect, $all_authors_sql);
     $all_authors_rs = mysqli_fetch_assoc($all_authors_query);
 
-    // // initialise author variables
+    // initialise author variables
     $first = $all_authors_rs['First'];
     $middle = $all_authors_rs['Middle'];
     $last = $all_authors_rs['Last'];

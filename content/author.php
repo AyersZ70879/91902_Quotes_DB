@@ -55,7 +55,7 @@ include("get_author.php");
 
         <div class="edit-tools">
 
-        <a href="index.php?page=../admin/editauthor&ID=<?php echo 
+        <a href="index.php?page=../admin/editauthor&authorID=<?php echo 
         $find_rs['Author_ID']; ?>" title="Edit author"><i class="fa fa-edit fa-
         2x"></i></a>
 
