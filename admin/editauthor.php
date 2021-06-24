@@ -4,7 +4,6 @@
 if (isset($_SESSION['admin'])) {
 
     $author_ID = $_REQUEST['authorID'];
-    echo $author_ID;
 
     // get country & occupation lists from database
     $all_countiers_sql="SELECT * FROM `country` ORDER BY `Country` ASC ";
