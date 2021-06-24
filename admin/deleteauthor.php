@@ -10,7 +10,7 @@ if (isset($_SESSION['admin'])) {
     $deletequote_query = mysqli_query($dbconnect, $deletequote_sql);
 
     // delete author
-    $delete_author_sql = "DELETE FROM `author`.`Author_ID`=".$_REQUEST['ID'];
+    $delete_author_sql = "DELETE FROM `author` WHERE `author`.`Author_ID`=".$_REQUEST['ID'];
     $delete_author_query = mysqli_query($dbconnect, $delete_author_sql);
 
 ?>
