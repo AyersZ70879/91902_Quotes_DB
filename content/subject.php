@@ -20,7 +20,7 @@ $find_sql = "SELECT * FROM `quotes`
 JOIN author ON (`author`.`Author_ID` = `quotes`.`Author_ID`)
 WHERE `Subject1_ID` = $subject_to_find
 OR `Subject2_ID` = $subject_to_find
-OR `Subject3_ID = $subject_to_find
+OR `Subject3_ID` = $subject_to_find
 ";
 $find_query = mysqli_query($dbconnect, $find_sql);
 $find_rs = mysqli_fetch_assoc($find_query);
