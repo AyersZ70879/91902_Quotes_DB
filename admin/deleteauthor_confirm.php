@@ -29,13 +29,17 @@ if (isset($_SESSION['admin'])) {
 <div class="error">
         There are <?php echo $author_quotes_count; ?> quotes associated 
 </div>
-
-<p>
-<a
-</p>
 <?php
 
     } // end check for quotes if
+?>
+<p>
+<a href="index.php?page=../admin/deleteauthor&ID=<?php echo $_REQUEST['ID']; ?>">
+Yes, Delete it@!</a>
+<a href="index.php?page=author&authorID=<?php echo $_REQUEST['ID']; ?>">
+No, take me back</a>
+</p>
+<?php
 } // end user logged in if
 
 else {
