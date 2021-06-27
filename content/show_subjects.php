@@ -17,8 +17,6 @@
                  if($subject != 0)
                  {
 
-                 
-
              ?>
              <!-- show subjects -->
              <span class="tag">
