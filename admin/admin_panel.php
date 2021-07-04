@@ -38,7 +38,7 @@ if (isset($_SESSION['admin'])) {
 <h2>Authors...</h2>
 
 <p>
-    Either <a href="index.php?page=../admin/add_author">Add and Author</a>
+    Either <a href="index.php?page=../admin/add_author">Add an Author</a>
     or choose an author from the dropdown list below to edit / delete an existing 
     author.
 </p>

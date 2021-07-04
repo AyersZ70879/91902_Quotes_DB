@@ -125,7 +125,7 @@ function isValidYear($year)
     // returns 1 if valid amd nothing is invlaid
     // Source: https://stackoverflow.com/questions/1684100/php-form-validation-for-year
      // Convert to timestamp
-     $start_year         =   strtotime(date('Y') - 100); //100 Years back
+     $start_year         =   strtotime(date('Y') - 5000); //100 Years back
      $end_year           =   strtotime(date('Y')); // Current Year
      $received_year      =   strtotime($year);
 
